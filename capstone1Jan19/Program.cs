@@ -23,20 +23,23 @@ namespace capstone1Jan19
                 Console.WriteLine(pigLatin);
                 runP = Continue();
             }
-
         }
         private static string toPigLatin(string sentence)
         {
             const string vowels = "AEIOUaeio";
             List<string> pigLWords = new List<string>();
-
             foreach (string word in sentence.Split(' '))
-            {
+            {         
                 string firstLetter = word.Substring(0, 1);
                 string restOfWord = word.Substring(1, word.Length - 1);
                 int currentLetter = vowels.IndexOf(firstLetter);
-
-                if (currentLetter == -1)
+                if (word.Contains("1") || word.Contains("2") || word.Contains("3") || word.Contains("4") || word.Contains("5") || word.Contains("6") 
+                    || word.Contains("7") || word.Contains("8") || word.Contains("9") || word.Contains("!") || word.Contains("$") || word.Contains("@") 
+                    || word.Contains("#") || word.Contains("%") || word.Contains("^") || word.Contains("&") || word.Contains("*"))
+                {
+                    pigLWords.Add(word);
+                }
+                else if (currentLetter == -1)
                 {
                     pigLWords.Add(restOfWord + firstLetter + "ay");
                 }
